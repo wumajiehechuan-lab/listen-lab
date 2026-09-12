@@ -50,22 +50,20 @@ LLM_PRESETS: dict[str, dict] = {
 
 # 前端字段名 → (env 键, settings 属性, 显示名)
 CONFIG_FIELDS: dict[str, tuple[str, str, str]] = {
-    "volc_app_id": ("VOLC_APP_ID", "volc_app_id", "火山引擎 App ID"),
-    "volc_access_token": ("VOLC_ACCESS_TOKEN", "volc_access_token", "火山引擎 Access Token"),
+    "volc_api_key": ("VOLC_API_KEY", "volc_api_key", "火山引擎 API Key"),
     "llm_provider": ("LLM_PROVIDER", "llm_provider", "LLM 服务商"),
     "llm_api_key": ("LLM_API_KEY", "llm_api_key", "LLM API Key"),
     "llm_base_url": ("LLM_BASE_URL", "llm_base_url", "Base URL"),
     "llm_model": ("LLM_MODEL", "llm_model", "模型"),
 }
 
-SECRET_FIELDS = {"volc_access_token", "llm_api_key"}
+SECRET_FIELDS = {"volc_api_key", "llm_api_key"}
 
 
 class SettingsUpdate(BaseModel):
     """配置更新请求体（空字符串表示不修改该项，llm_provider 除外）。"""
 
-    volc_app_id: str = ""
-    volc_access_token: str = ""
+    volc_api_key: str = ""
     llm_provider: str = ""
     llm_api_key: str = ""
     llm_base_url: str = ""

@@ -10,10 +10,10 @@
   const settingsDot = document.getElementById("settings-dot");
 
   // 分区渲染：ASR 固定字段，LLM 含服务商下拉
-  const ASR_FIELDS = ["volc_app_id", "volc_access_token"];
+  const ASR_FIELDS = ["volc_api_key"];
   const LLM_FIELDS = ["llm_api_key", "llm_base_url", "llm_model"];
   // 必填项（决定小红点提示）
-  const REQUIRED = ["volc_app_id", "volc_access_token", "llm_api_key"];
+  const REQUIRED = ["volc_api_key", "llm_api_key"];
 
   let configData = { fields: {}, presets: {} };
 
@@ -65,6 +65,11 @@
     fieldsBox.innerHTML = `
       <div class="settings-section">
         <h3>语音识别（ASR）</h3>
+        <label class="form-row">
+          <span>服务商</span>
+          <input type="text" value="火山引擎 · 豆包录音文件识别模型 2.0" disabled>
+        </label>
+        <div class="preset-note">在火山引擎「语音技术 → API Key 管理」获取 Key，需开通「豆包录音文件识别模型」。更多服务商（阿里 / 腾讯）后续支持。</div>
         ${ASR_FIELDS.map(fieldRow).join("")}
       </div>
       <div class="settings-section">

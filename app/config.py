@@ -15,9 +15,8 @@ DB_PATH = DATA_DIR / "app.db"
 class Settings(BaseSettings):
     """应用配置，从 .env 文件加载。"""
 
-    # ASR（火山引擎语音识别）
-    volc_app_id: str = ""
-    volc_access_token: str = ""
+    # ASR（火山引擎语音识别，新版控制台 API Key）
+    volc_api_key: str = ""
     # LLM（OpenAI 兼容接口：DeepSeek / 各家 Coding Plan / 混元 / 自定义）
     llm_provider: str = "deepseek"
     llm_api_key: str = ""

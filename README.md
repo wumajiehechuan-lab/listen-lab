@@ -63,9 +63,9 @@ uv pip install -r requirements.txt
 复制并编辑 `.env`，填入 API 密钥（也可在 Web 页面「模型设置」中可视化配置，保存即时生效，无需重启）：
 
 ```ini
-# 火山引擎语音识别（录音文件识别极速版，视频转录用）
-VOLC_APP_ID=your_volc_app_id
-VOLC_ACCESS_TOKEN=your_volc_access_token
+# 火山引擎语音识别（新版控制台 API Key，视频转录用）
+# 获取：console.volcengine.com → 语音技术 → API Key 管理；需开通「豆包录音文件识别模型」
+VOLC_API_KEY=your_volc_api_key
 
 # LLM（OpenAI 兼容接口，翻译 + 重点词提取用）
 LLM_PROVIDER=deepseek
@@ -89,6 +89,7 @@ LLM_MODEL=deepseek-chat
 ### 3. 启动服务
 
 ```bash
+.\.venv\Scripts\Activate.ps1 # 激活项目环境 python run.py
 python run.py
 ```
 
