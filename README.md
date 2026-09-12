@@ -1,6 +1,14 @@
 # 精听 · 英语听读素材库
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
+
 一个本地部署的英语听读素材生成与管理 Web 应用：上传一段英文视频，自动完成语音识别转写（句级英文字幕）、AI 翻译与重点词提取，生成「左屏视频 + 下屏字幕 + 右栏词汇」的精听听读页面，并支持将页面合成导出为独立视频。
+
+采用 [MIT](LICENSE) 许可证开源，欢迎使用、修改与二次开发。
 
 ## ✨ 功能特性
 
