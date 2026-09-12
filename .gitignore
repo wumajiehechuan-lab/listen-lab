@@ -1,0 +1,23 @@
+# 密钥配置（含 API Key，禁止提交）
+.env
+
+# 运行时数据：SQLite 数据库、上传媒体、导出视频
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env.*
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Design 生成的辅助参考（页面/设计 tokens，非运行所需）
+apple-listening-app/

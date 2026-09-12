@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listen Lab · 英语听读素材库</title>
+  <link rel="stylesheet" href="/static/css/style.css?v=7">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-name">精听</span>
+      <span class="brand-sub">英语听读素材库</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="btn-import" class="btn btn-primary">＋ 导入视频</button>
+      <button id="btn-export" class="btn" disabled>导出视频</button>
+      <button id="btn-settings" class="btn">模型设置<span id="settings-dot" class="settings-dot hidden"></span></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 左侧树状文件导航 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span>素材库</span>
+        <button id="btn-new-folder" class="icon-btn" title="新建文件夹">＋</button>
+      </div>
+      <div id="tree" class="tree"></div>
+    </aside>
+
+    <!-- 中间：视频栏（冻结）+ 字幕栏（滚动） -->
+    <main class="main-col">
+      <section class="video-panel">
+        <video id="video" controls preload="metadata"></video>
+        <div id="empty-hint" class="empty-hint">← 从左侧选择素材，或点击右上角「导入视频」</div>
+      </section>
+      <section id="subtitle-panel" class="subtitle-panel">
+        <div id="subtitle-list" class="subtitle-list"></div>
+      </section>
+    </main>
+
+    <!-- 右侧单词栏 -->
+    <aside class="word-panel">
+      <div class="word-panel-header">核心词汇</div>
+      <div id="word-list" class="word-list"></div>
+    </aside>
+  </div>
+
+  <!-- 导入视频模态窗口 -->
+  <div id="upload-modal" class="modal-mask hidden">
+    <div class="modal">
+      <h2>导入视频</h2>
+      <label class="form-row">
+        <span>标题</span>
+        <input id="upload-title" type="text" placeholder="留空则使用文件名">
+      </label>
+      <label class="form-row">
+        <span>保存到文件夹</span>
+        <select id="upload-folder"></select>
+      </label>
+      <label class="form-row">
+        <span>视频文件</span>
+        <input id="upload-file" type="file" accept="video/*,audio/*">
+      </label>
+      <div id="upload-progress" class="upload-progress hidden"></div>
+      <div class="modal-actions">
+        <button id="btn-upload-cancel" class="btn">取消</button>
+        <button id="btn-upload-submit" class="btn btn-primary">开始生成</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模型设置模态窗口 -->
+  <div id="settings-modal" class="modal-mask hidden">
+    <div class="modal">
+      <h2>模型接入设置</h2>
+      <p class="settings-tip">配置保存在本地 .env 文件，保存后即时生效，无需重启。</p>
+      <div id="settings-fields"></div>
+      <div id="settings-progress" class="upload-progress hidden"></div>
+      <div class="modal-actions">
+        <button id="btn-settings-close" class="btn">关闭</button>
+        <button id="btn-settings-save" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 通用对话框（替代原生 prompt/confirm/alert，预览浏览器不支持原生弹窗） -->
+  <div id="dialog-mask" class="modal-mask hidden">
+    <div class="modal modal-sm">
+      <h2 id="dialog-title"></h2>
+      <input id="dialog-input" type="text" class="hidden">
+      <p id="dialog-message" class="dialog-message hidden"></p>
+      <div class="modal-actions">
+        <button id="dialog-cancel" class="btn">取消</button>
+        <button id="dialog-ok" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/player.js?v=7"></script>
+  <script src="/static/js/upload.js?v=7"></script>
+  <script src="/static/js/app.js?v=7"></script>
+  <script src="/static/js/settings.js?v=7"></script>
+  <script>window.Settings && window.Settings.init();</script>
+</body>
+</html>
